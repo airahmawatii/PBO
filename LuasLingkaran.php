@@ -3,26 +3,30 @@
 class LuasLingkaran {
     public const phi = 3.14;
     public int $jari;
-
+    public function __construct($Isijari = 1){
+        $this->jari = $Isijari;
+    }
+    public function __destruct(){
+        echo "<br>";
+        echo "udah ah cape";
+    }
     //Method biasa (non-static)
     public function tampil($nama = 'ban') {
-        $rumus = self::phi * $this->jari * $this->jari;
+        $rumus = LuasLingkaran::phi * $this->jari * $this->jari;
         echo "Lingkaran $nama hasilnya adalah:" . $rumus ."<br>";
     
     }
 
     //Method static (bisa dipanggil tanpa objek)
-    public static function testing($jari){
-        $hasil = self::phi * $jari * $jari;
-        echo "ini hasil dari static :" . $hasil;
+    public static function testing(){
+        echo "<br>";
+        echo "ini dari static";
+        ;
     }
 }    
 
-//Pemanggilan method biasa
-$lingkaran = new LuasLingkaran();
+//Pemanggilan 
+$lingkaran = new LuasLingkaran(7);
 $lingkaran->jari = 7;
-$lingkaran->tampil('kue');
-
-//pemanggilan method static
-LuasLingkaran::testing(10);
+LuasLingkaran::testing();
 ?>
